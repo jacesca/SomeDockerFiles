@@ -1,0 +1,39 @@
+1. Running Docker containers
+00:00 - 00:05
+Let's see how to use Docker to start, stop and look at the output of containers.
+
+2. Prerequisite
+00:05 - 00:27
+In the rest of the course, we'll be using the command line extensively, and some familiarity is needed, which is why we advise you to take the prerequisite course introduction to shell if you're not already familiar with most shell commands on this slide. We will be using commands like nano with only a brief introduction, together with several others, which you can find on the slide.
+
+3. The Docker CLI
+00:27 - 01:25
+Let's get started with the Docker command line interface or CLI. The CLI will send our instructions to the docker daemon, which is responsible for managing our containers and images. After receiving our command, the daemon will reply with the result, which we'll see in the terminal. The CLI command for Docker is simply `docker`. Before we can start a container, we have to choose which image to start it from. We need an image because images act as blueprints or recipes from which we can start containers. Images define what will be installed and available when the container is started. The container is then a running instance of the image, which we can interact with. For example, there exists an image called ubuntu that contains the full Ubuntu OS. Once we start a container from that image, we have a fully running Ubuntu OS that we can interact with using a shell.
+
+4. Docker container output
+01:25 - 01:51
+If we want to start a container from an image, we can use the docker run command, followed by the image-name. For example, to start the hello-world image, we would use Docker space run space hello dash world. By default, Docker starts a container and shows you the container's output while it's running. When we run a hello-world container, it prints an explanation of how the container works and then stops.
+
+5. Choosing Docker container output
+01:51 - 02:29
+When an image is created, the creator can choose what will happen when a container is started from the image. For example, the creators of the hello-world image choose to print out text and then make the container stop itself. Another example is the Ubuntu image, which contains a full Ubuntu OS. When starting an Ubuntu container, it will start and then shut down immediately without printing any output. Its creators decided that for their image, it didn't make sense to do anything specific by default. The Ubuntu OS starts, and it stops again without any output.
+
+6. An interactive Docker container
+02:29 - 03:13
+Instead, the Ubuntu image is intended to be used with the dash it flag. Using 'docker run dash it' followed by an image-name, we can start a container and simultaneously get an interactive shell in this container. If we do this with the Ubuntu image, using 'docker run dash it space Ubuntu', we end up in a new shell inside the new container. The shell gives us access to a clean Ubuntu environment isolated from our host machine because it is running inside the container. Once we want to exit the container, we simply use the exit command, which returns us to the host machine and then stops the container.
+
+7. Running a container detached
+03:13 - 03:44
+We saw a container that just prints text and one that makes more sense to use interactively. A third type of container processes data or can be interacted with in some way externally, for example, a container with a database like Postgres or a data processing script. These are run using Docker run dash d, for detached, followed by the image-name. This makes containers run in the background without printing their output to our shell.
+
+8. Listing and stopping running containers
+03:44 - 04:10
+After the container has started, the docker ps command allows us to see it and any other running containers. The first column contains the container-id, a unique id identifying each container. The next step is stopping containers we don't need anymore. This can be done with the 'docker stop' command. To stop the desired container, we pass the container-id to the docker stop command.
+
+9. Summary of new commands
+04:10 - 04:17
+Here is a summary of the new commands we just saw, that you can refer back to when completing the exercises.
+
+10. Let's practice!
+04:17 - 04:22
+Now it's your turn to start and stop some containers!
